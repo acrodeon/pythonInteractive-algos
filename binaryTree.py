@@ -1,0 +1,47 @@
+#################################################################################
+#                         Binary Tree                                           #
+# The root value, as well as the left and right subtrees                        #
+#################################################################################
+
+class BinaryTree:
+    def __init__(self,rootObj):
+        """creates a new instance of a binary tree of root rootObj"""
+        self.key = rootObj
+        self.leftChild = None
+        self.rightChild = None
+
+    def insertLeft(self,newNode):
+        """creates a new binary tree and installs it as the left child of the current node"""
+        if self.leftChild == None:
+            self.leftChild = BinaryTree(newNode)
+        else:
+            # insert a node and push the existing child down one level in the tree
+            t = BinaryTree(newNode)
+            t.leftChild = self.leftChild
+            self.leftChild = t
+
+    def insertRight(self,newNode):
+        """creates a new binary tree and installs it as the right child of the current node"""
+        if self.rightChild == None:
+            self.rightChild = BinaryTree(newNode)
+        else:
+            # insert the node between the root and an existing right child
+            t = BinaryTree(newNode)
+            t.rightChild = self.rightChild
+            self.rightChild = t
+
+    def getRightChild(self):
+        """returns the binary tree corresponding to the right child of the current node"""
+        return self.rightChild
+
+    def getLeftChild(self):
+        """returns the binary tree corresponding to the left child of the current node"""
+        return self.leftChild
+
+    def setRootVal(self,obj):
+        """stores the object in parameter val in the current node"""
+        self.key = obj
+
+    def getRootVal(self):
+        """returns the object stored in the current node"""
+        return self.key
