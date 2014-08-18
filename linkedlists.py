@@ -91,6 +91,9 @@ class UnorderedList:
             self.head = current.getNext()
         else:
             previous.setNext(current.getNext())
+##            if self.tail == current:
+##                # the item to be removed happens to be the last item
+##                self.tail = previous
 
 
 
