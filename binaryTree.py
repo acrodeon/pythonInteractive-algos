@@ -45,3 +45,20 @@ class BinaryTree:
     def getRootVal(self):
         """returns the object stored in the current node"""
         return self.key
+
+    def getMinDepth(self):
+        """returns the min depth of this binary tree (it means the root)"""
+        return 1 + min(self.leftChild.getMinDepth(), self.leftChild.getMinDepth()) if self.key != null else 0
+
+    def getMaxDepth(self):
+        """returns the Max depth of this binary tree (it means the root)"""
+        return 1 + max(self.leftChild.getMaxDepth(), self.leftChild.getMaxDepth()) if self.key != null else 0
+
+    def inOrder(self):
+        """in Order"""
+        if self.key:
+            if self.leftChild:
+                self.leftChild.inOrder()
+            print(self.key)
+            if self.rightChild:
+                self.rightChild.inOrder()
